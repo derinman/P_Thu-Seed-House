@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+
+import styled from "styled-components";
+
+const Wrapper = styled.div`
+  position: relative;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  //border: 10px solid #f70a0a;
+`;
+
+const Home = () => {
+  return <div>134</div>;
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Wrapper>
+      <Routes>
+        <Route exact path="/" element={<Home />}/>
+      </Routes>
+    </Wrapper>
   );
 }
 
