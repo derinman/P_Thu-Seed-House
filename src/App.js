@@ -58,7 +58,7 @@ const LowerContainer = styled.div`
 const HouseImgContainer = styled.div`
   position: relative;
   height: 100%;
-  width: 40%;
+  width: 50%;
   display:flex;
   flex-direction:row;
   //border: 1px solid blue;
@@ -114,7 +114,7 @@ const HouseImg = styled.div`
 const IndexContainer = styled.div`
   position: relative;
   height: 100%;
-  width: 60%;
+  width: 50%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -135,15 +135,21 @@ const IndexItem = styled.div`
   flex-direction:row;
   justify-content:start;
   align-items:center;
-  margin: 0rem 0rem 0rem 8rem;
+  margin:0% 0% 0% 2.5%;
   // border 1px solid green;
   > div {
     &:nth-child(2) {
       display:flex;
       margin-top:0.3rem;
-      // border:1px solid red;
+      //border:1px solid red;
       >div {
         margin:0rem 0rem 0rem 2rem;
+        &:nth-child(1) {
+          width:6rem;
+        }
+        &:nth-child(2) {
+          width:6rem;
+        }
         &:nth-child(3) {
           font-size:1.2rem;
           margin-top: 0.8rem;
@@ -155,28 +161,47 @@ const IndexItem = styled.div`
   }
   @media ${rwdConfig.laptopL} {
     margin: 0rem 0rem 0rem 1rem;
+    font-size:1.5rem;
+    > div {
+      &:nth-child(2) {
+        >div {
+          &:nth-child(1) {
+            width:3rem;
+          }
+          &:nth-child(2) {
+            width:3rem;
+          }
+          &:nth-child(3) {
+            font-size:1rem;
+            margin-top: 0.5rem;
+          }
+        }
+      }
   }
   @media ${rwdConfig.tablet} {
     width: calc(50% - 2.25rem);
     flex-direction:column;
     justify-content:space-around;
-    font-size:1.5rem;
+    font-size:1.2rem;
     margin:0rem 0rem 1.5rem 1.5rem;
     border-radius:1rem;
     background-color:#3d3834;
     > div {
+      // border:1px solid red;
       &:nth-child(2) {
         >div {
           &:nth-child(1) {
+            // border:1px solid red;
             font-size:1.2rem;
-            margin-top: 0.8rem;
+            margin:0.3rem 0rem 0rem 0rem;
           }
           &:nth-child(2) {
-            font-size:2rem;
+            font-size:1.5rem;
+            margin:0rem 0rem 0rem 1rem;
           }
           &:nth-child(3) {
             font-size:1.2rem;
-            margin-top: 0.8rem;
+            margin:0.3rem 0rem 0rem 1rem;
           }
         }
       }
@@ -266,8 +291,11 @@ const Pie = styled.div`
     --h: calc(${(props) => props.height} + 10vw);
   }
   @media ${rwdConfig.tablet} {
-    --w: calc(${(props) => props.width} + 14vw);
-    --h: calc(${(props) => props.height} + 14vw);
+    --w: calc(${(props) => props.width} + 13vw);
+    --h: calc(${(props) => props.height} + 13vw);
+  }
+  @media ${rwdConfig.mobileL} {
+    --rw: calc(${(props) => props.ringWidth} - 0.5rem );
   }
 `;
 
@@ -297,6 +325,9 @@ const PieIndex = styled.div`
   }
   @media ${rwdConfig.tablet} {
     font-size: 1.5rem;
+  }
+  @media ${rwdConfig.mobileL} {
+    font-size: 1.1rem;
   }
 `;
 
@@ -362,6 +393,14 @@ const ChartInnerContainer = styled.div`
   background-color: #3d3834;
   border-radius: 1rem;
   // border: 1px solid yellow;
+  @media ${rwdConfig.tablet} {
+    width: calc(100% - 1.5rem - 10px);
+    height: calc(100% - 1.5rem - 10px);
+    left:0;
+    top:0;
+    background-color:#000;
+    border:5px solid #3d3834;
+  }
 `;
 
 const Home = () => {
@@ -377,7 +416,7 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    console.log(divRef);
+    // console.log(divRef);
     setIsChart(true);
   }, []);
 
@@ -394,7 +433,7 @@ const Home = () => {
         </HouseImgContainer>
         <IndexContainer>
           <IndexItem>
-            <div>太陽能發電率</div>
+            <div>⬜️ 太陽能發電率</div>
             <div>
               <div>PV</div>
               <div>90.2</div>
@@ -403,7 +442,7 @@ const Home = () => {
             <div>周平均 93 W</div>
           </IndexItem>
           <IndexItem>
-            <div>綠藻淨化指數</div>
+            <div>⬜️ 綠藻淨化指數</div>
             <div>
               <div>O₂</div>
               <div>545</div>
@@ -412,7 +451,7 @@ const Home = () => {
             <div>周平均 550 PPM</div>
           </IndexItem>
           <IndexItem>
-            <div>空氣環境品質</div>
+            <div>⬜️ 空氣環境品質</div>
             <div>
               <div>CO₂</div>
               <div>729</div>
@@ -421,7 +460,7 @@ const Home = () => {
             <div>周平均 793 PPM</div>
           </IndexItem>
           <IndexItem>
-            <div>水耕循環系統</div>
+            <div>⬜️ 水耕循環系統</div>
             <div>
               <div>TEMP.</div>
               <div>22.0</div>
