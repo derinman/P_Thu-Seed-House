@@ -1,11 +1,8 @@
 import React, { useRef, useEffect, useState } from "react";
 
-import {
-  VictoryChart,
-  VictoryAxis,
-  VictoryTheme,
-  VictoryLine,
-} from "victory";
+import { Link } from "react-router-dom";
+
+import { VictoryChart, VictoryAxis, VictoryTheme, VictoryLine } from "victory";
 
 import styled from "styled-components";
 
@@ -110,7 +107,7 @@ const IndexContainer = styled.div`
   }
 `;
 
-const IndexItem = styled.div`
+const IndexItem = styled(Link)`
   position: relative;
   width: 100%;
   color: #fff;
@@ -120,7 +117,18 @@ const IndexItem = styled.div`
   justify-content: start;
   align-items: center;
   margin: 0% 0% 0% 2.5%;
-  // border 1px solid green;
+  //border 1px solid green;
+  text-decoration: none;
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+  }
+  &:hover {
+    background-color: #38665c;
+  }
   > div {
     &:nth-child(2) {
       display: flex;
@@ -418,7 +426,7 @@ const Home = () => {
           <HouseImg></HouseImg>
         </HouseImgContainer>
         <IndexContainer>
-          <IndexItem>
+          <IndexItem to={"/air"}>
             <div>⬜️ 太陽能發電率</div>
             <div>
               <div>PV</div>
@@ -427,7 +435,7 @@ const Home = () => {
             </div>
             <div>周平均 93 W</div>
           </IndexItem>
-          <IndexItem>
+          <IndexItem to={"/hydroponics"}>
             <div>⬜️ 綠藻淨化指數</div>
             <div>
               <div>O₂</div>
@@ -436,7 +444,7 @@ const Home = () => {
             </div>
             <div>周平均 550 PPM</div>
           </IndexItem>
-          <IndexItem>
+          <IndexItem to={"/algae"}>
             <div>⬜️ 空氣環境品質</div>
             <div>
               <div>CO₂</div>
@@ -445,7 +453,7 @@ const Home = () => {
             </div>
             <div>周平均 793 PPM</div>
           </IndexItem>
-          <IndexItem>
+          <IndexItem to={"/solar"}>
             <div>⬜️ 水耕循環系統</div>
             <div>
               <div>TEMP.</div>
