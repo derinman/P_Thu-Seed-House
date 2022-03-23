@@ -116,8 +116,9 @@ const IndexItem = styled(Link)`
   flex-direction: row;
   justify-content: start;
   align-items: center;
-  margin: 0% 0% 0% 2.5%;
+  margin: 1rem 2rem 1rem 0rem;
   //border 1px solid green;
+  border-radius:1rem;
   text-decoration: none;
   &:focus,
   &:hover,
@@ -145,7 +146,7 @@ const IndexItem = styled(Link)`
         &:nth-child(3) {
           font-size: 1.2rem;
           margin-top: 0.8rem;
-          // border:1px solid red;
+          //border:1px solid red;
         }
       }
     }
@@ -154,7 +155,7 @@ const IndexItem = styled(Link)`
     }
   }
   @media ${rwdConfig.laptopL} {
-    margin: 0rem 0rem 0rem 1rem;
+    margin: 1rem 2rem 1rem 0rem;
     font-size: 1.5rem;
     > div {
       &:nth-child(2) {
@@ -211,8 +212,8 @@ const IndexItem = styled(Link)`
 const PieContainer = styled.div`
   position: relative;
   width: 35%;
-  height: 100%;
-  // border: 1px solid yellow;
+  height: calc( 100% - 2rem);
+  //border: 1px solid yellow;
   @media ${rwdConfig.tablet} {
     width: 40%;
   }
@@ -230,7 +231,7 @@ const Pie = styled.div`
   left: calc(50% - var(--w) / 2);
   width: var(--w);
   height: var(--h);
-  // border: 1px solid #fff;
+  //border: 1px solid #fff;
   &:after,
   &:before {
     content: "";
@@ -329,37 +330,34 @@ const LowerClockContainer = styled.div`
   position: relative;
   width: 15%;
   height: 100%;
-  // border: 1px solid yellow;
+  //border: 1px solid yellow;
   color: #fff;
   > div {
     &:nth-child(1) {
       font-size: 4rem;
-      margin: 1rem 0rem 0rem 1rem;
+      margin: 0rem 0rem 0rem 0rem;
     }
     &:nth-child(2) {
       font-size: 2rem;
-      margin: 0.2rem 0rem 0rem 1rem;
+      margin: 0rem 0rem 0rem 0rem;
     }
     &:nth-child(3) {
       position: fixed;
       bottom: 0;
       font-size: 2rem;
-      margin: 0rem 0rem 2rem 1rem;
+      margin: 0rem 0rem 2rem 0rem;
     }
   }
   @media ${rwdConfig.laptop} {
     > div {
       &:nth-child(1) {
         font-size: 3.5rem;
-        margin: 1rem 0rem 0rem 0rem;
       }
       &:nth-child(2) {
         font-size: 1.7rem;
-        margin: 0.2rem 0rem 0rem 0rem;
       }
       &:nth-child(3) {
         font-size: 1.7rem;
-        margin: 0rem 0rem 1.7rem 0rem;
       }
     }
   }
@@ -372,7 +370,7 @@ const ChartContainer = styled.div`
   position: relative;
   width: 50%;
   height: 100%;
-  // border: 1px solid yellow;
+  //border: 1px solid yellow;
   @media ${rwdConfig.tablet} {
     width: 60%;
   }
@@ -380,16 +378,14 @@ const ChartContainer = styled.div`
 
 const ChartInnerContainer = styled.div`
   position: relative;
-  width: 95%;
-  height: 95%;
-  top: 2.5%;
-  left: 2.5%;
+  width: calc(100% - 2rem);
+  height: calc(100% - 2rem);
+  top: 0%;
+  left: 0%;
   background-color: #3d3834;
   border-radius: 1rem;
-  // border: 1px solid yellow;
+  //border: 1px solid yellow;
   @media ${rwdConfig.tablet} {
-    width: calc(100% - 1.5rem - 10px);
-    height: calc(100% - 1.5rem - 10px);
     left: 0;
     top: 0;
     background-color: #000;
@@ -426,7 +422,7 @@ const Home = () => {
           <HouseImg></HouseImg>
         </HouseImgContainer>
         <IndexContainer>
-          <IndexItem to={"/air"}>
+          <IndexItem to={"/solar"}>
             <div>⬜️ 太陽能發電率</div>
             <div>
               <div>PV</div>
@@ -435,7 +431,7 @@ const Home = () => {
             </div>
             <div>周平均 93 W</div>
           </IndexItem>
-          <IndexItem to={"/hydroponics"}>
+          <IndexItem to={"/algae"}>
             <div>⬜️ 綠藻淨化指數</div>
             <div>
               <div>O₂</div>
@@ -444,7 +440,7 @@ const Home = () => {
             </div>
             <div>周平均 550 PPM</div>
           </IndexItem>
-          <IndexItem to={"/algae"}>
+          <IndexItem to={"/air"}>
             <div>⬜️ 空氣環境品質</div>
             <div>
               <div>CO₂</div>
@@ -453,7 +449,7 @@ const Home = () => {
             </div>
             <div>周平均 793 PPM</div>
           </IndexItem>
-          <IndexItem to={"/solar"}>
+          <IndexItem to={"/hydroponics"}>
             <div>⬜️ 水耕循環系統</div>
             <div>
               <div>TEMP.</div>
