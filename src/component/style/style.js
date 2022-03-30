@@ -19,7 +19,7 @@ const LowerContainer = styled.div`
   height: 85%;
   display: flex;
   flex-direction: row;
-  border: 1px red solid;
+  // border: 1px red solid;
   @media ${rwdConfig.tablet} {
     flex-direction:column;
   }
@@ -29,7 +29,7 @@ const LowerContainer = styled.div`
 const HouseImg = styled.div`
   height: 100%;
   width: 60%;
-  border: 1px yellow solid;
+  // border: 1px yellow solid;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -59,6 +59,9 @@ const GobackBtn = styled.div`
   color: #fff;
   background-color: #38665c;
   border-radius: 0.5rem;
+  &:hover{
+    border:2px solid #fff;
+  }
 `;
 
 export {TitleContainer, Title, LowerContainer, HouseImg, IndexContainer, GobackBtn};
