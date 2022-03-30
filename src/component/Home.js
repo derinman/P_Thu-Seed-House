@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 
 import { VictoryChart, VictoryAxis, VictoryTheme, VictoryLine } from "victory";
 
-import houseImg from "../img/A8.png";
+import axios from "axios";
 
 import {
   UpperContainer,
@@ -20,10 +20,37 @@ import {
   ChartInnerContainer,
 } from "./style/homeStyle.js";
 
+import houseImg from "../img/A8.png";
+
+const url = "http://140.128.191.90:8080/avg/hydroponic-ph";
+
 const Home = () => {
+  
+  const [sensorData, setSensorData] = useState({})
+
   const [isChart, setIsChart] = useState(false);
   const [divSize, setDivSize] = useState({});
   const divRef = useRef();
+
+  // const fetchData = () => {
+  //   axios
+  //     .get(url)
+  //     .then((res) => {
+  //       console.log('aaa')
+  //       console.log(res.data)
+  //       setSensorData({});
+  //     })
+  //     .catch((err) => console.log(err));
+  // };
+
+  // useEffect(() => {
+  //   fetchData();
+  //   let interval = setInterval(() => {
+  //     fetchData();
+  //     console.log("t");
+  //   }, 1000 * 15);
+  //   return () => clearInterval(interval);
+  // }, []);
 
   useEffect(() => {
     setDivSize({
@@ -46,7 +73,7 @@ const Home = () => {
             <div>12:24PM</div>
             <div>MON.</div>
           </UpperClockContainer>
-          <HouseImg style={{ backgroundImage: `url(${houseImg})` }}/>
+          <HouseImg style={{ backgroundImage: `url(${houseImg})` }} />
         </HouseImgContainer>
         <IndexContainer>
           <IndexItem to={"/solar"}>
