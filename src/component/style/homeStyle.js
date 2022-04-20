@@ -85,6 +85,16 @@ const HouseImg = styled.div`
 }
 `;
 
+const HouseVideo = styled.video`
+  position: relative;
+  width: 100%;
+  max-width: 665px;
+  @media ${rwdConfig.tablet} {
+    max-width: 420px;
+  }
+  //border: "1px solid red",
+`
+
 const IndexContainer = styled.div`
   position: relative;
   height: 100%;
@@ -392,6 +402,7 @@ export {
   HouseImgContainer,
   UpperClockContainer,
   HouseImg,
+  HouseVideo,
   IndexContainer,
   IndexItem,
   PieContainer,

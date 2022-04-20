@@ -10,6 +10,7 @@ import {
   HouseImgContainer,
   UpperClockContainer,
   HouseImg,
+  HouseVideo,
   IndexContainer,
   IndexItem,
   PieContainer,
@@ -21,12 +22,23 @@ import {
 } from "./style/homeStyle.js";
 
 import houseImg from "../img/A8.png";
+import houseVideo from "../img/houseVideo.mp4";
 
-const url = "http://140.128.191.90:8080/avg/hydroponic-ph";
+const hydroponicEcUrl = "http://140.128.191.90:8080/avg/hydroponic-ec";
+const hydroponicPhUrl = "http://140.128.191.90:8080/avg/hydroponic-ph";
+const hydroponicTempUrl = "http://140.128.191.90:8080/avg/hydroponic-temp";
+
+//"http://140.128.191.90/avg/city-CO2"
+//"http://140.128.191.90/avg/city-PM25"
+
+//"140.128.191.90:8080/avg/taichung-PM2.5"
+//"140.128.191.90:8080/avg/taichung-O3"
 
 const Home = () => {
-  
-  const [sensorData, setSensorData] = useState({})
+  //hydroponic
+  const [hydroponicEc, setHydroponicEc] = useState();
+  const [hydroponicPh, setHydroponicPh] = useState();
+  const [hydroponicTemp, setHydroponicTemp] = useState();
 
   const [isChart, setIsChart] = useState(false);
   const [divSize, setDivSize] = useState({});
@@ -34,23 +46,62 @@ const Home = () => {
 
   // const fetchData = () => {
   //   axios
-  //     .get(url)
+  //     .get(hydroponicTempUrl)
   //     .then((res) => {
-  //       console.log('aaa')
-  //       console.log(res.data)
-  //       setSensorData({});
+  //       setSensorData({ ...res.data });
+  //       console.log({ ...res.data });
   //     })
   //     .catch((err) => console.log(err));
   // };
 
+  // const getSensorData2 = (url) => {
+  //   return axios.get(url);
+  // };
+
+  const fetchData = () => {
+    axios
+      .all([
+        getSensorData(hydroponicEcUrl),
+        getSensorData(hydroponicPhUrl),
+        getSensorData(hydroponicTempUrl),
+      ])
+      .then(
+        axios.spread((data1, data2, data3) => {
+          console.log("hydroponicEcUrl:", data1);
+          console.log("hydroponicPhUrl:", data2);
+          console.log("hydroponicTempUrl:", data3);
+          setHydroponicEc(data1.data.sensor.reading);
+          setHydroponicPh(data2.data.sensor.reading);
+          setHydroponicTemp(data3.data.sensor.reading);
+        })
+      )
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
+  const getSensorData = async (url) => {
+    try {
+      const get = await axios.get(url);
+      return get;
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+    let interval = setInterval(() => {
+      fetchData();
+    }, 1000 * 5);
+    return () => clearInterval(interval);
+  }, []);
+
   // useEffect(() => {
-  //   fetchData();
-  //   let interval = setInterval(() => {
-  //     fetchData();
-  //     console.log("t");
-  //   }, 1000 * 15);
-  //   return () => clearInterval(interval);
-  // }, []);
+  //   console.log("hydroponicEc", hydroponicEc);
+  //   console.log("hydroponicPh", hydroponicPh);
+  //   console.log("hydroponicTemp", hydroponicTemp);
+  // }, [hydroponicEc, hydroponicPh, hydroponicTemp]);
 
   useEffect(() => {
     setDivSize({
@@ -73,7 +124,17 @@ const Home = () => {
             <div>12:24PM</div>
             <div>MON.</div>
           </UpperClockContainer>
-          <HouseImg style={{ backgroundImage: `url(${houseImg})` }} />
+
+          <HouseImg>
+            <HouseVideo
+              src={houseVideo}
+              autoPlay
+              loop
+              muted
+            />
+          </HouseImg>
+
+          {/* <HouseImg style={{ backgroundImage: `url(${houseImg})` }} /> */}
         </HouseImgContainer>
         <IndexContainer>
           <IndexItem to={"/solar"}>
@@ -107,7 +168,7 @@ const Home = () => {
             <div>⬜️ 水耕循環系統</div>
             <div>
               <div>TEMP.</div>
-              <div>22.0</div>
+              <div>{hydroponicTemp}</div>
               <div>°C</div>
             </div>
             <div>周平均 25 °C</div>
