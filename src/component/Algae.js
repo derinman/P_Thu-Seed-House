@@ -3,11 +3,13 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 import algae from "../img/algae.jpg";
+import algae_highlight from "../img/algae_highlight.png"
 
 import {
   TitleContainer,
   Title,
   LowerContainer,
+  HouseImgWrapper,
   HouseImg,
   IndexContainer,
   GobackBtn,
@@ -22,7 +24,10 @@ const Solar = () => {
         <Title>⬜️ 綠藻淨化指數</Title>
       </TitleContainer>
       <LowerContainer>
-        <HouseImg style={{ backgroundImage: `url(${algae})` }} />
+        <HouseImgWrapper>
+          <HouseImg style={{ backgroundImage: `url(${algae})` }} />
+          <HouseImg style={{ backgroundImage: `url(${algae_highlight})` }} />
+        </HouseImgWrapper>
         <IndexContainer></IndexContainer>
       </LowerContainer>
       <GobackBtn onClick={() => navigate("/")}>返 回</GobackBtn>

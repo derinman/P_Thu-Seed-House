@@ -26,17 +26,24 @@ const LowerContainer = styled.div`
 }
 `;
 
-const HouseImg = styled.div`
+const HouseImgWrapper = styled.div`
+  position:relative;
   height: 100%;
   width: 60%;
-  // border: 1px yellow solid;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
   @media ${rwdConfig.tablet} {
     height: 55%;
     width: 100%;
   }
+`;
+
+const HouseImg = styled.div`
+  position:absolute;
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  // border: 1px yellow solid;
 `;
 
 const IndexContainer = styled.div`
@@ -59,9 +66,17 @@ const GobackBtn = styled.div`
   color: #fff;
   background-color: #38665c;
   border-radius: 0.5rem;
-  &:hover{
-    border:2px solid #fff;
+  &:hover {
+    border: 2px solid #fff;
   }
 `;
 
-export {TitleContainer, Title, LowerContainer, HouseImg, IndexContainer, GobackBtn};
+export {
+  TitleContainer,
+  Title,
+  LowerContainer,
+  HouseImgWrapper,
+  HouseImg,
+  IndexContainer,
+  GobackBtn,
+};
