@@ -11,7 +11,9 @@ import {
   LowerContainer,
   HouseImgWrapper,
   HouseImg,
+  IndexOuterContainer,
   IndexContainer,
+  IndexItem,
   GobackBtn,
 } from "./style/style.js";
 
@@ -28,7 +30,52 @@ const Solar = () => {
           <HouseImg style={{ backgroundImage: `url(${air})` }} />
           <HouseImg style={{ backgroundImage: `url(${air_highlight})` }} />
         </HouseImgWrapper>
-        <IndexContainer></IndexContainer>
+        <IndexOuterContainer>
+          <IndexContainer>
+            <IndexItem>
+              <div>⬜️ 二氧化碳</div>
+              <div>
+                <div>456.00</div>
+                <div>PPM</div>
+              </div>
+            </IndexItem>
+            <IndexItem>
+              <div>⬜️ 一氧化碳</div>
+              <div>
+                <div>0.03</div>
+                <div>PPM</div>
+              </div>
+            </IndexItem>
+            <IndexItem>
+              <div>⬜️ 細顆粒物</div>
+              <div>
+                <div>14.67</div>
+                <div>PPM</div>
+              </div>
+            </IndexItem>
+            <IndexItem>
+              <div>⬜️ 懸浮微粒</div>
+              <div>
+                <div>0.03</div>
+                <div>PPM</div>
+              </div>
+            </IndexItem>
+            <IndexItem>
+              <div>⬜️ 溫度</div>
+              <div>
+                <div>28.20</div>
+                <div>°C</div>
+              </div>
+            </IndexItem>
+            <IndexItem>
+              <div>⬜️ 濕度</div>
+              <div>
+                <div>59.66</div>
+                <div>%</div>
+              </div>
+            </IndexItem>
+          </IndexContainer>
+        </IndexOuterContainer>
       </LowerContainer>
       <GobackBtn onClick={() => navigate("/")}>返 回</GobackBtn>
     </>

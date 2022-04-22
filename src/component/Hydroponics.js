@@ -11,7 +11,9 @@ import {
   LowerContainer,
   HouseImgWrapper,
   HouseImg,
+  IndexOuterContainer,
   IndexContainer,
+  IndexItem,
   GobackBtn,
 } from "./style/style.js";
 
@@ -26,9 +28,35 @@ const Solar = () => {
       <LowerContainer>
         <HouseImgWrapper>
           <HouseImg style={{ backgroundImage: `url(${hydroponics})` }} />
-          <HouseImg style={{ backgroundImage: `url(${hydroponics_highlight})` }} />
+          <HouseImg
+            style={{ backgroundImage: `url(${hydroponics_highlight})` }}
+          />
         </HouseImgWrapper>
-        <IndexContainer></IndexContainer>
+        <IndexOuterContainer>
+          <IndexContainer>
+            <IndexItem>
+              <div>⬜️ 電解質</div>
+              <div>
+                <div>1605.00</div>
+                <div>μS</div>
+              </div>
+            </IndexItem>
+            <IndexItem>
+              <div>⬜️ 酸鹼質</div>
+              <div>
+                <div>6.15</div>
+                <div>PH</div>
+              </div>
+            </IndexItem>
+            <IndexItem>
+              <div>⬜️ 水溫</div>
+              <div>
+                <div>24.20</div>
+                <div>°C</div>
+              </div>
+            </IndexItem>
+          </IndexContainer>
+        </IndexOuterContainer>
       </LowerContainer>
       <GobackBtn onClick={() => navigate("/")}>返 回</GobackBtn>
     </>
