@@ -28,7 +28,7 @@ const Solar = () => {
       <LowerContainer>
         <HouseImgWrapper>
           <HouseImg style={{ backgroundImage: `url(${solar})` }} />
-          <HouseImg style={{ backgroundImage: `url(${solar_highlight})` }} />
+          <HouseImg style={{ backgroundImage: `url(${solar_highlight})` }} animation={true}/>
         </HouseImgWrapper>
         <IndexOuterContainer>
           <IndexContainer>

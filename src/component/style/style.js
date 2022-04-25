@@ -43,6 +43,16 @@ const HouseImg = styled.div`
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
+  animation: imgBlink .2s  ease-in-out alternate infinite;
+  animation-play-state: ${props=>props.animation?'running':'paused'};
+  @keyframes imgBlink {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0.1;
+    }
+  }
   // border: 1px yellow solid;
 `;
 

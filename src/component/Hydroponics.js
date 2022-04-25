@@ -30,6 +30,7 @@ const Solar = () => {
           <HouseImg style={{ backgroundImage: `url(${hydroponics})` }} />
           <HouseImg
             style={{ backgroundImage: `url(${hydroponics_highlight})` }}
+            animation={true}
           />
         </HouseImgWrapper>
         <IndexOuterContainer>

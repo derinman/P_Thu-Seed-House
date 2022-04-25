@@ -128,9 +128,10 @@ const Home = () => {
           <HouseImg>
             <HouseVideo
               src={houseVideo}
-              autoPlay
-              loop
-              muted
+              autoPlay={true}
+              loop={true}
+              muted={true}
+              controls={false}
             />
           </HouseImg>
 
