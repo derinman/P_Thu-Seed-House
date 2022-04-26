@@ -40,9 +40,12 @@ const Home = () => {
   const [hydroponicPh, setHydroponicPh] = useState();
   const [hydroponicTemp, setHydroponicTemp] = useState();
 
+  const [pieSize, setPieSize] = useState({});
+  const pieContainerRef = useRef();
+
   const [isChart, setIsChart] = useState(false);
-  const [divSize, setDivSize] = useState({});
-  const divRef = useRef();
+  const [chartSize, setChartSize] = useState({});
+  const chartContainerRef = useRef();
 
   // const fetchData = () => {
   //   axios
@@ -90,9 +93,9 @@ const Home = () => {
   };
 
   useEffect(() => {
-    fetchData();
+    // fetchData();
     let interval = setInterval(() => {
-      fetchData();
+      // fetchData();
     }, 1000 * 5);
     return () => clearInterval(interval);
   }, []);
@@ -104,11 +107,39 @@ const Home = () => {
   // }, [hydroponicEc, hydroponicPh, hydroponicTemp]);
 
   useEffect(() => {
-    setDivSize({
-      width: divRef.current.clientWidth,
-      height: divRef.current.clientHeight,
-    });
+    const handleResize = () => {
+      setChartSize({
+        width: chartContainerRef.current.clientWidth,
+        height: chartContainerRef.current.clientHeight,
+      });
+
+      let tmpPieSize =
+        pieContainerRef.current.clientWidth >
+        pieContainerRef.current.clientHeight
+          ? pieContainerRef.current.clientHeight
+          : pieContainerRef.current.clientWidth;
+
+      // console.log(
+      //   pieContainerRef.current.clientWidth,
+      //   pieContainerRef.current.clientHeight,
+      //   tmpPieSize
+      // );
+      console.log(pieContainerRef)
+
+      setPieSize({size:tmpPieSize});
+      
+    };
+
+    handleResize();
+    console.log(pieSize);
+    window.addEventListener("resize", handleResize);
+
+    return (_) => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
+
+  useEffect(()=>{console.log(pieSize)},[pieSize, setPieSize])
 
   useEffect(() => {
     // console.log(divRef);
@@ -124,7 +155,6 @@ const Home = () => {
             <div>12:24PM</div>
             <div>MON.</div>
           </UpperClockContainer>
-
           <HouseImg>
             <HouseVideo
               src={houseVideo}
@@ -134,8 +164,6 @@ const Home = () => {
               controls={false}
             />
           </HouseImg>
-
-          {/* <HouseImg style={{ backgroundImage: `url(${houseImg})` }} /> */}
         </HouseImgContainer>
         <IndexContainer>
           <IndexItem to={"/solar"}>
@@ -177,35 +205,35 @@ const Home = () => {
         </IndexContainer>
       </UpperContainer>
       <LowerContainer>
-        <PieContainer>
+        <PieContainer ref={pieContainerRef}>
           <Pie
             color={"#3d3834"}
-            width={"20vw"}
-            height={"20vw"}
+            width={`calc(${pieSize['size']}px - 5rem)`}
+            height={`calc(${pieSize['size']}px - 5rem)`}
             ringWidth={"1.5rem"}
             arcLength={100}
             spin={false}
           />
           <Pie
             color={"#fff"}
-            width={"20vw"}
-            height={"20vw"}
+            width={`calc(${pieSize['size']}px - 5rem)`}
+            height={`calc(${pieSize['size']}px - 5rem)`}
             ringWidth={"1.5rem"}
             arcLength={30}
             spin={true}
           />
           <Pie
             color={"#738077"}
-            width={"calc(20vw - 3rem)"}
-            height={"calc(20vw - 3rem)"}
+            width={`calc(${pieSize['size']}px - 8rem)`}
+            height={`calc(${pieSize['size']}px - 8rem)`}
             ringWidth={"1.5rem"}
             arcLength={100}
             spin={false}
           />
           <Pie
             color={"#70c3b2"}
-            width={"calc(20vw - 3rem)"}
-            height={"calc(20vw - 3rem)"}
+            width={`calc(${pieSize['size']}px - 8rem)`}
+            height={`calc(${pieSize['size']}px - 8rem)`}
             ringWidth={"1.5rem"}
             arcLength={50}
             spin={true}
@@ -220,12 +248,12 @@ const Home = () => {
           <div>12:24PM</div>
           <div>MON.</div>
         </LowerClockContainer>
-        <ChartContainer ref={divRef}>
+        <ChartContainer ref={chartContainerRef}>
           <ChartInnerContainer>
             <VictoryChart
               theme={VictoryTheme.material}
-              width={divSize["width"]}
-              height={divSize["height"]}
+              width={chartSize["width"]}
+              height={chartSize["height"]}
               minDomain={{ y: 0 }}
               maxDomain={{ y: 10 }}
             >

@@ -10,7 +10,7 @@ const UpperContainer = styled.div`
   height: 60%;
   display:flex;
   flex-direction:row;
-  //border: 1px solid #f70a0a;
+  // border: 1px solid #f70a0a;
   @media ${rwdConfig.tablet} {
       height:75%;
       flex-direction:column;
@@ -50,6 +50,7 @@ const UpperClockContainer = styled.div`
   height: 100%;
   display: none;
   color: #fff;
+  z-index:10;
   //border: 1px solid yellow;
   > div {
     &:nth-child(1) {
@@ -88,6 +89,7 @@ const HouseImg = styled.div`
 const HouseVideo = styled.video`
   position: relative;
   width: 100%;
+  height:100%;
   max-width: 665px;
   @media ${rwdConfig.tablet} {
     max-width: 420px;
@@ -216,7 +218,7 @@ const PieContainer = styled.div`
   position: relative;
   width: 35%;
   height: calc(100% - 2rem);
-  //border: 1px solid yellow;
+  // border: 1px solid yellow;
   @media ${rwdConfig.tablet} {
     width: 40%;
   }
@@ -234,7 +236,7 @@ const Pie = styled.div`
   left: calc(50% - var(--w) / 2);
   width: var(--w);
   height: var(--h);
-  //border: 1px solid #fff;
+  // border: 1px solid #fff;
   &:after,
   &:before {
     content: "";
