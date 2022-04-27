@@ -23,31 +23,36 @@ const Solar = () => {
   return (
     <>
       <TitleContainer>
-        <Title>⬜️ 太陽能發電效率</Title>
+        <Title>
+          <span>⬜️</span> 太陽能發電效率
+        </Title>
       </TitleContainer>
       <LowerContainer>
         <HouseImgWrapper>
           <HouseImg style={{ backgroundImage: `url(${solar})` }} />
-          <HouseImg style={{ backgroundImage: `url(${solar_highlight})` }} animation={true}/>
+          <HouseImg
+            style={{ backgroundImage: `url(${solar_highlight})` }}
+            animation={true}
+          />
         </HouseImgWrapper>
         <IndexOuterContainer>
           <IndexContainer>
             <IndexItem>
-              <div>⬜️ 綠能資訊</div>
+              <div><span>⬜️</span> 綠能資訊</div>
               <div>
                 <div>30.01</div>
                 <div>w</div>
               </div>
             </IndexItem>
             <IndexItem>
-              <div>⬜️ 用電資訊</div>
+              <div><span>⬜️</span> 用電資訊</div>
               <div>
                 <div>17.24</div>
                 <div>w</div>
               </div>
             </IndexItem>
             <IndexItem>
-              <div>⬜️ 儲能率</div>
+              <div><span>⬜️</span> 儲能率</div>
               <div>
                 <div>56.31</div>
                 <div>%</div>

@@ -23,52 +23,69 @@ const Solar = () => {
   return (
     <>
       <TitleContainer>
-        <Title>⬜️ 環境空氣品質</Title>
+        <Title>
+          <span>⬜️</span> 環境空氣品質
+        </Title>
       </TitleContainer>
       <LowerContainer>
         <HouseImgWrapper>
           <HouseImg style={{ backgroundImage: `url(${air})` }} />
-          <HouseImg style={{ backgroundImage: `url(${air_highlight})` }} animation={true}/>
+          <HouseImg
+            style={{ backgroundImage: `url(${air_highlight})` }}
+            animation={true}
+          />
         </HouseImgWrapper>
         <IndexOuterContainer>
           <IndexContainer>
             <IndexItem>
-              <div>⬜️ 二氧化碳</div>
+              <div>
+                <span>⬜️</span> 二氧化碳
+              </div>
               <div>
                 <div>456.00</div>
                 <div>PPM</div>
               </div>
             </IndexItem>
             <IndexItem>
-              <div>⬜️ 一氧化碳</div>
+              <div>
+                <span>⬜️</span> 一氧化碳
+              </div>
               <div>
                 <div>0.03</div>
                 <div>PPM</div>
               </div>
             </IndexItem>
             <IndexItem>
-              <div>⬜️ 細顆粒物</div>
+              <div>
+                <span>⬜️</span> 細顆粒物
+              </div>
               <div>
                 <div>14.67</div>
                 <div>PPM</div>
               </div>
             </IndexItem>
             <IndexItem>
-              <div>⬜️ 懸浮微粒</div>
+              <div>
+                <span>⬜️</span> 懸浮微粒
+              </div>
               <div>
                 <div>0.03</div>
                 <div>PPM</div>
               </div>
             </IndexItem>
             <IndexItem>
-              <div>⬜️ 溫度</div>
+              <div>
+                <span>⬜️</span> 溫度
+              </div>
               <div>
                 <div>28.20</div>
                 <div>°C</div>
               </div>
             </IndexItem>
             <IndexItem>
-              <div>⬜️ 濕度</div>
+              <div>
+                <span>⬜️</span> 濕度
+              </div>
               <div>
                 <div>59.66</div>
                 <div>%</div>

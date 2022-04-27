@@ -23,7 +23,9 @@ const Solar = () => {
   return (
     <>
       <TitleContainer>
-        <Title>⬜️ 水耕循環系統</Title>
+        <Title>
+          <span>⬜️</span> 水耕循環系統
+        </Title>
       </TitleContainer>
       <LowerContainer>
         <HouseImgWrapper>
@@ -36,21 +38,27 @@ const Solar = () => {
         <IndexOuterContainer>
           <IndexContainer>
             <IndexItem>
-              <div>⬜️ 電解質</div>
+              <div>
+                <span>⬜️</span> 電解質
+              </div>
               <div>
                 <div>1605.00</div>
                 <div>μS</div>
               </div>
             </IndexItem>
             <IndexItem>
-              <div>⬜️ 酸鹼質</div>
+              <div>
+                <span>⬜️</span> 酸鹼質
+              </div>
               <div>
                 <div>6.15</div>
                 <div>PH</div>
               </div>
             </IndexItem>
             <IndexItem>
-              <div>⬜️ 水溫</div>
+              <div>
+                <span>⬜️</span> 水溫
+              </div>
               <div>
                 <div>24.20</div>
                 <div>°C</div>

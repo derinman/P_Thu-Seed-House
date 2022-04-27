@@ -12,7 +12,14 @@ const Title = styled.div`
   margin: 2rem;
   color: #fff;
   font-size: 2rem;
+  @media ${rwdConfig.laptopL} {
+    font-size:1.6rem;
+  }
+  @media ${rwdConfig.tablet} {
+    font-size:1.3rem;
+  }
 `;
+
 
 const LowerContainer = styled.div`
   width: 100%;
@@ -82,9 +89,9 @@ const IndexContainer = styled.div`
 const IndexItem = styled.div`
   position: relative;
   width: 100%;
-  height: 5rem;
+  // height: 5rem;
   color: #fff;
-  font-size: 2rem;
+  font-size: 1.6rem;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -115,7 +122,7 @@ const IndexItem = styled.div`
   }
   @media ${rwdConfig.laptopL} {
     margin: 1rem 2rem 1rem 0rem;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     > div {
       &:nth-child(2) {
         > div {
@@ -132,7 +139,7 @@ const IndexItem = styled.div`
       width: calc(50% - 2.25rem);
       flex-direction: column;
       justify-content: space-around;
-      font-size: 1.2rem;
+      font-size: 1rem;
       margin: 0rem 0rem 1.5rem 1.5rem;
       border-radius: 1rem;
       background-color: #3d3834;

@@ -122,7 +122,7 @@ const IndexItem = styled(Link)`
   justify-content: start;
   align-items: center;
   margin: 1rem 2rem 1rem 0rem;
-  //border 1px solid green;
+  // border 1px solid green;
   border-radius: 1rem;
   text-decoration: none;
   &:focus,
@@ -136,14 +136,21 @@ const IndexItem = styled(Link)`
     background-color: #38665c;
   }
   > div {
+    &:nth-child(1) {
+      >span {
+        font-size: 1rem;
+        margin:0rem 1rem;
+      }
+    }
     &:nth-child(2) {
       display: flex;
       margin-top: 0.3rem;
-      //border:1px solid red;
+      // border:1px solid red;
       > div {
         margin: 0rem 0rem 0rem 2rem;
         &:nth-child(1) {
           width: 6rem;
+          // border:1px solid red;
         }
         &:nth-child(2) {
           width: 6rem;
@@ -151,7 +158,7 @@ const IndexItem = styled(Link)`
         &:nth-child(3) {
           font-size: 1.2rem;
           margin-top: 0.8rem;
-          //border:1px solid red;
+          // border:1px solid red;
         }
       }
     }
@@ -163,6 +170,12 @@ const IndexItem = styled(Link)`
     margin: 1rem 2rem 1rem 0rem;
     font-size: 1.5rem;
     > div {
+      &:nth-child(1) {
+        >span {
+          font-size: 0.75rem;
+          margin:0rem 0.75rem;
+        }
+      }
       &:nth-child(2) {
         > div {
           &:nth-child(1) {
@@ -188,20 +201,29 @@ const IndexItem = styled(Link)`
       background-color: #3d3834;
       > div {
         // border:1px solid red;
+        &:nth-child(1) {
+          >span {
+            font-size: 0.6rem;
+            margin:0rem 0.6rem;
+          }
+        }
         &:nth-child(2) {
           > div {
             &:nth-child(1) {
-              // border:1px solid red;
               font-size: 1.2rem;
-              margin: 0.3rem 0rem 0rem 0rem;
+              width:2rem;
+              margin: 0.1rem 0rem 0rem 0rem;
+              // border:1px solid red;
             }
             &:nth-child(2) {
               font-size: 1.5rem;
               margin: 0rem 0rem 0rem 1rem;
+              // border:1px solid red;
             }
             &:nth-child(3) {
               font-size: 1.2rem;
               margin: 0.3rem 0rem 0rem 1rem;
+              // border:1px solid red;
             }
           }
         }
@@ -303,7 +325,7 @@ const PieIndex = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
-  font-size: 3.5rem;
+  font-size: calc(${props => props.pieSize*3.5*0.002}rem) ;
   transform: translate(-50%, -50%);
   // border:1px solid red;
   > div {
@@ -314,21 +336,21 @@ const PieIndex = styled.div`
       color: #70c3b2;
     }
   }
-  @media ${rwdConfig.desktop} {
-    font-size: 3rem;
-  }
-  @media ${rwdConfig.laptopL} {
-    font-size: 2.5rem;
-  }
-  @media ${rwdConfig.laptop} {
-    font-size: 2rem;
-  }
-  @media ${rwdConfig.tablet} {
-    font-size: 1.5rem;
-  }
-  @media ${rwdConfig.mobileL} {
-    font-size: 1.1rem;
-  }
+  // @media ${rwdConfig.desktop} {
+  //   font-size: 3rem;
+  // }
+  // @media ${rwdConfig.laptopL} {
+  //   font-size: 2.5rem;
+  // }
+  // @media ${rwdConfig.laptop} {
+  //   font-size: 2rem;
+  // }
+  // @media ${rwdConfig.tablet} {
+  //   font-size: 1.5rem;
+  // }
+  // @media ${rwdConfig.mobileL} {
+  //   font-size: 1.1rem;
+  // }
 `;
 
 const LowerClockContainer = styled.div`

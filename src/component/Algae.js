@@ -23,45 +23,60 @@ const Solar = () => {
   return (
     <>
       <TitleContainer>
-        <Title>⬜️ 綠藻淨化指數</Title>
+        <Title>
+          <span>⬜️</span> 綠藻淨化指數
+        </Title>
       </TitleContainer>
       <LowerContainer>
         <HouseImgWrapper>
           <HouseImg style={{ backgroundImage: `url(${algae})` }} />
-          <HouseImg style={{ backgroundImage: `url(${algae_highlight})` }} animation={true}/>
+          <HouseImg
+            style={{ backgroundImage: `url(${algae_highlight})` }}
+            animation={true}
+          />
         </HouseImgWrapper>
         <IndexOuterContainer>
           <IndexContainer>
             <IndexItem>
-              <div>⬜️ 氧氣量</div>
+              <div>
+                <span>⬜️</span> 氧氣量
+              </div>
               <div>
                 <div>545.02</div>
                 <div>PPM</div>
               </div>
             </IndexItem>
             <IndexItem>
-              <div>⬜️ 綠藻濃度</div>
+              <div>
+                <span>⬜️</span> 綠藻濃度
+              </div>
               <div>
                 <div>18.62</div>
                 <div>%</div>
               </div>
             </IndexItem>
             <IndexItem>
-              <div>⬜️ 溶氧量</div>
+              <div>
+                <span>⬜️</span> 溶氧量
+              </div>
               <div>
                 <div>12.24</div>
                 <div>%</div>
               </div>
             </IndexItem>
             <IndexItem>
-              <div>⬜️ 電解質</div>
+              <div>
+                <span>⬜️</span> 電解質
+              </div>
               <div>
                 <div>5.92</div>
                 <div>PH</div>
               </div>
             </IndexItem>
             <IndexItem>
-              <div>⬜️ 水溫</div>
+              <div>
+                <span>⬜️</span> 水溫
+              </div>
               <div>
                 <div>24.20</div>
                 <div>°C</div>

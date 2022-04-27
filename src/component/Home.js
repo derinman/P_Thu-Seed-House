@@ -21,7 +21,6 @@ import {
   ChartInnerContainer,
 } from "./style/homeStyle.js";
 
-import houseImg from "../img/A8.png";
 import houseVideo from "../img/houseVideo.mp4";
 
 const hydroponicEcUrl = "http://140.128.191.90:8080/avg/hydroponic-ec";
@@ -124,14 +123,13 @@ const Home = () => {
       //   pieContainerRef.current.clientHeight,
       //   tmpPieSize
       // );
-      console.log(pieContainerRef)
+      // console.log(pieContainerRef)
 
-      setPieSize({size:tmpPieSize});
-      
+      setPieSize({ size: tmpPieSize });
     };
 
     handleResize();
-    console.log(pieSize);
+    // console.log(pieSize);
     window.addEventListener("resize", handleResize);
 
     return (_) => {
@@ -139,7 +137,7 @@ const Home = () => {
     };
   }, []);
 
-  useEffect(()=>{console.log(pieSize)},[pieSize, setPieSize])
+  // useEffect(()=>{console.log(pieSize)},[pieSize, setPieSize])
 
   useEffect(() => {
     // console.log(divRef);
@@ -167,7 +165,9 @@ const Home = () => {
         </HouseImgContainer>
         <IndexContainer>
           <IndexItem to={"/solar"}>
-            <div>⬜️ 太陽能發電率</div>
+            <div>
+              <span>⬜️</span> 太陽能發電率
+            </div>
             <div>
               <div>PV</div>
               <div>90.2</div>
@@ -176,7 +176,9 @@ const Home = () => {
             <div>周平均 93 W</div>
           </IndexItem>
           <IndexItem to={"/algae"}>
-            <div>⬜️ 綠藻淨化指數</div>
+            <div>
+              <span>⬜️</span> 綠藻淨化指數
+            </div>
             <div>
               <div>O₂</div>
               <div>545</div>
@@ -185,7 +187,9 @@ const Home = () => {
             <div>周平均 550 PPM</div>
           </IndexItem>
           <IndexItem to={"/air"}>
-            <div>⬜️ 空氣環境品質</div>
+            <div>
+              <span>⬜️</span> 空氣環境品質
+            </div>
             <div>
               <div>CO₂</div>
               <div>729</div>
@@ -194,7 +198,9 @@ const Home = () => {
             <div>周平均 793 PPM</div>
           </IndexItem>
           <IndexItem to={"/hydroponics"}>
-            <div>⬜️ 水耕循環系統</div>
+            <div>
+              <span>⬜️</span> 水耕循環系統
+            </div>
             <div>
               <div>TEMP.</div>
               <div>{hydroponicTemp}</div>
@@ -208,37 +214,37 @@ const Home = () => {
         <PieContainer ref={pieContainerRef}>
           <Pie
             color={"#3d3834"}
-            width={`calc(${pieSize['size']}px - 5rem)`}
-            height={`calc(${pieSize['size']}px - 5rem)`}
+            width={`calc(${pieSize["size"]}px - 5rem)`}
+            height={`calc(${pieSize["size"]}px - 5rem)`}
             ringWidth={"1.5rem"}
             arcLength={100}
             spin={false}
           />
           <Pie
             color={"#fff"}
-            width={`calc(${pieSize['size']}px - 5rem)`}
-            height={`calc(${pieSize['size']}px - 5rem)`}
+            width={`calc(${pieSize["size"]}px - 5rem)`}
+            height={`calc(${pieSize["size"]}px - 5rem)`}
             ringWidth={"1.5rem"}
             arcLength={30}
             spin={true}
           />
           <Pie
             color={"#738077"}
-            width={`calc(${pieSize['size']}px - 8rem)`}
-            height={`calc(${pieSize['size']}px - 8rem)`}
+            width={`calc(${pieSize["size"]}px - 8rem)`}
+            height={`calc(${pieSize["size"]}px - 8rem)`}
             ringWidth={"1.5rem"}
             arcLength={100}
             spin={false}
           />
           <Pie
             color={"#70c3b2"}
-            width={`calc(${pieSize['size']}px - 8rem)`}
-            height={`calc(${pieSize['size']}px - 8rem)`}
+            width={`calc(${pieSize["size"]}px - 8rem)`}
+            height={`calc(${pieSize["size"]}px - 8rem)`}
             ringWidth={"1.5rem"}
             arcLength={50}
             spin={true}
           />
-          <PieIndex>
+          <PieIndex pieSize={pieSize["size"]}>
             <div>25 %</div>
             <div>15 °C</div>
           </PieIndex>
