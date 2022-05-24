@@ -27,11 +27,18 @@ const hydroponicEcUrl = "http://140.128.191.90:8080/avg/hydroponic-ec";
 const hydroponicPhUrl = "http://140.128.191.90:8080/avg/hydroponic-ph";
 const hydroponicTempUrl = "http://140.128.191.90:8080/avg/hydroponic-temp";
 
-//"http://140.128.191.90/avg/city-CO2"
-//"http://140.128.191.90/avg/city-PM25"
 
-//"140.128.191.90:8080/avg/taichung-PM2.5"
-//"140.128.191.90:8080/avg/taichung-O3"
+// 140.128.191.90:8080/avg/taichung-PM2.5
+// 140.128.191.90:8080/avg/taichung-O3
+
+// 140.128.191.90:8080/avg/city-CO2
+// 140.128.191.90:8080/avg/city-PM25
+// 140.128.191.90:8080/avg/city-O3
+// 140.128.191.90:8080/avg/city-HCHO
+// 140.128.191.90:8080/avg/city-CO
+// 140.128.191.90:8080/avg/city-Rh
+// 140.128.191.90:8080/avg/city-TVOC
+// 140.128.191.90:8080/avg/city-PM10
 
 const Home = () => {
   //hydroponic
@@ -203,10 +210,10 @@ const Home = () => {
             </div>
             <div>
               <div>TEMP.</div>
-              <div>{hydroponicTemp}</div>
+              <div>21.7</div>
               <div>°C</div>
             </div>
-            <div>周平均 25 °C</div>
+            <div>周平均 21.7 °C</div>
           </IndexItem>
         </IndexContainer>
       </UpperContainer>
@@ -246,7 +253,7 @@ const Home = () => {
           />
           <PieIndex pieSize={pieSize["size"]}>
             <div>25 %</div>
-            <div>15 °C</div>
+            <div>24.6 °C</div>
           </PieIndex>
         </PieContainer>
         <LowerClockContainer>
