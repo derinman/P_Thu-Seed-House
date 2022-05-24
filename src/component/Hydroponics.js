@@ -60,7 +60,7 @@ const Solar = () => {
                 <span>⬜️</span> 水溫
               </div>
               <div>
-                <div>24.20</div>
+                <div>21.7</div>
                 <div>°C</div>
               </div>
             </IndexItem>
